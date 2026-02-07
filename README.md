@@ -56,6 +56,8 @@ This enables long‑term strategic decision‑making instead of short‑lived pr
   - Full support for `HTTP`, `SOCKS4`, `SOCKS5`
 
 **Output example**
+
+
 socks5://1.2.3.4:1080
 
 
@@ -70,6 +72,8 @@ socks5://1.2.3.4:1080
 - Country, city, and RTT‑based latency measurement
 
 **Output example**
+
+
 1.2.3.4:1080 | US | Comcast | RES | 120ms
 
 
@@ -94,6 +98,8 @@ socks5://1.2.3.4:1080
   - TLS version detection (up to **TLS 1.3**)
 
 **Output example**
+
+
 1.2.3.4:1080 | ELITE | G:PASS | SSL:TLS1.3
 
 
@@ -112,6 +118,8 @@ socks5://1.2.3.4:1080
 - GeoJSON output for global proxy visualization
 
 **Output example**
+
+
 1.2.3.4:1080 | 12.4 Mbps | ULTRA
 
 
@@ -120,6 +128,8 @@ socks5://1.2.3.4:1080
 ## Output Schema
 
 Structured, automation‑ready output:
+
+
 
 socks5://1.2.3.4:1080 | US | Comcast | RES | 120ms | ELITE | G:PASS | 12.4 Mbps | ULTRA | SSL:TLS1.3
 
@@ -149,9 +159,8 @@ socks5://1.2.3.4:1080 | US | Comcast | RES | 120ms | ELITE | G:PASS | 12.4 Mbps 
 git clone https://github.com/slaher501/V0iDXa.git
 cd V0iDXa
 pip install -r requirements.txt
-```
-Run
 python V0iDXa.py
+```
 Project Structure
 V0iDXa/
 ├── V0iDXa.py        # Core Intelligence Engine
@@ -159,7 +168,9 @@ V0iDXa/
 ├── proxies.db      # SQLite Intelligence Store
 ├── exports/        # TXT / JSON / CSV / GeoJSON
 └── README.md
+
 Professional Use Cases
+
 Penetration testing (pivoting, evasion planning)
 
 OSINT under network restrictions
@@ -171,6 +182,7 @@ Proxy pool lifecycle management
 Distributed automation pipelines
 
 Disclaimer
+
 “Capability demands discipline.”
 
 This tool is intended strictly for educational purposes and authorized security research.
@@ -179,23 +191,8 @@ The developer (slaher501) assumes no responsibility for misuse or damages caused
 Operate legally. Operate ethically.
 
 Final Note
+
 “If you know, you win.
 If you don’t, you learn the hard way.”
 
 Built with precision by slaher501.
-
-
----
-
-الآن هذا:
-- ✅ **Markdown رسمي**
-- ✅ **جاهز GitHub**
-- ✅ **زر نسخ واحد**
-- ✅ ما يبان كأنه AI ولا إعلان
-
-لو تبغى بعدها:
-- README احترافي + **Badges**
-- أو **Architecture.md**
-- أو تحويله **Framework + API Docs**
-
-قل وش الخطوة الجاية وننفذها صح.
