@@ -149,6 +149,7 @@ socks5://1.2.3.4:1080 | US | Comcast | RES | 120ms | ELITE | G:PASS | 12.4 Mbps 
 git clone https://github.com/slaher501/V0iDXa.git
 cd V0iDXa
 pip install -r requirements.txt
+```
 Run
 python V0iDXa.py
 Project Structure
