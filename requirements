@@ -1,0 +1,7 @@
+# V0iDXa Engine Dependencies
+# Generated for slaher501 Proxy Intelligence Tool
+
+requests>=2.31.0
+colorama>=0.4.6
+python-telegram-bot>=20.0
+urllib3>=2.0.0
