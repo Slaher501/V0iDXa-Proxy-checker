@@ -1,41 +1,47 @@
-
+============================================================
        ماسح وتحليل البروكسيات المتقدم
                  بواسطة slaher501
+============================================================
 
+وصف الأداة:
 هذه أداة قوية واحترافية لسحب، فحص، وتحليل البروكسيات بطريقة متقدمة.
-مخصصة للاستخدام الجاد مثل: الاختبارات الأمنية، OSINT، السكربتات، الأتمتة، وبناء مجموعات بروكسي.
+مخصصة للاستخدام الجاد مثل:
+- الاختبارات الأمنية (Pentesting)
+- جمع المعلومات OSINT
+- السكربتات والأتمتة
+- بناء مجموعات بروكسي (Proxy Pool)
 
-هذه ليست أداة “يشتغل أو لا”، هذه منصة كاملة لتحليل البروكسيات.
+⚠️ هذه ليست أداة "يشتغل أو لا"، هذه منصة تحليل متكاملة.
 
 ------------------------------------------------------------
-1. سحب البروكسيات / PROXY SCRAPING
+1. سحب البروكسيات
 ------------------------------------------------------------
-- تسحب البروكسيات من أكثر من 30 مصدر موثوق.
-- تدعم جميع الأنواع: HTTP، SOCKS4، SOCKS5.
-- تزيل التكرار وتدعم دوران البروكسي أثناء السحب.
+- سحب البروكسيات من أكثر من 30 مصدر موثوق.
+- دعم جميع الأنواع: HTTP / SOCKS4 / SOCKS5.
+- إزالة التكرار ودعم دوران البروكسي أثناء السحب.
 Output مثال:
 socks5://1.2.3.4:1080
 
 ------------------------------------------------------------
-2. الفحص السريع والمتوازي / HIGH-SPEED CHECKING
+2. الفحص السريع والمتوازي
 ------------------------------------------------------------
-- فحص متوازي بعدد Threads كبير لتسريع العملية.
-- كشف البروكسيات الحية والميتة بدقة عالية.
+- فحص متعدد Threads لتسريع العملية.
+- كشف البروكسيات الحية والميتة بدقة.
 - Timeout ذكي لتخطي البروكسيات البطيئة.
 Output مثال:
 1.2.3.4:1080 → LIVE
 
 ------------------------------------------------------------
-3. ذكاء البروكسي / PROXY INTELLIGENCE
+3. ذكاء البروكسي
 ------------------------------------------------------------
-- يحدد الدولة، الكود، المدينة، مزود الخدمة، ASN.
-- يميز البروكسي بين Residential أو Datacenter.
-- يقيس زمن الاستجابة بالملي ثانية.
+- تحديد الدولة، الكود، المدينة، مزود الخدمة، ASN.
+- التمييز بين Residential و Datacenter.
+- قياس زمن الاستجابة بالملي ثانية.
 Output مثال:
 1.2.3.4:1080 | US | Comcast | DC | 120ms
 
 ------------------------------------------------------------
-4. مستوى التخفي / ANONYMITY
+4. مستوى التخفي
 ------------------------------------------------------------
 - ELITE: يخفي IP بالكامل.
 - ANONYMOUS: يترك أثر محدود.
@@ -44,209 +50,216 @@ Output مثال:
 1.2.3.4:1080 | ELITE
 
 ------------------------------------------------------------
-5. اختبار الوصول لـ Google / GOOGLE ACCESS TEST
+5. اختبار الوصول لـ Google
 ------------------------------------------------------------
-- يختبر ما إذا كان Google يعمل عبر البروكسي.
-- يكشف PASS، CAPTCHA، أو BLOCKED.
+- اختبار إذا كان Google يعمل عبر البروكسي.
+- يكتشف PASS / CAPTCHA / BLOCKED.
 Output مثال:
 1.2.3.4:1080 | G:PASS
 
 ------------------------------------------------------------
-6. اختبار السرعة / SPEED BENCHMARK
+6. اختبار السرعة
 ------------------------------------------------------------
-- تحميل ملف 1 ميجابايت لقياس السرعة.
+- تحميل 1 ميجابايت لقياس السرعة.
 - تصنيف السرعة: ULTRA / FAST / MEDIUM / SLOW.
 Output مثال:
 1.2.3.4:1080 | 12.4 Mbps | ULTRA
 
 ------------------------------------------------------------
-7. دعم SSL/TLS / SSL/TLS SUPPORT
+7. دعم SSL/TLS
 ------------------------------------------------------------
-- يفحص دعم HTTPS وإصدار TLS.
-- يحدد البروكسيات غير الآمنة.
+- فحص دعم HTTPS وإصدار TLS.
+- تحديد البروكسيات غير الآمنة.
 Output مثال:
 1.2.3.4:1080 | SSL:TLS1.3
 
 ------------------------------------------------------------
-8. القوائم السوداء / BLACKLIST CHECK
+8. القوائم السوداء
 ------------------------------------------------------------
-- يتحقق إن كان IP محظور أو مشبوه على الإنترنت.
+- التحقق من أن IP محظور أو مشبوه.
 Output مثال:
 1.2.3.4:1080 | BLACKLISTED:NO
 
 ------------------------------------------------------------
-9. فحص المنافذ / PORT SCANNING
+9. فحص المنافذ
 ------------------------------------------------------------
-- يفحص المنافذ الشائعة: 21,22,23,80,443,8080...
+- فحص المنافذ الشائعة: 21,22,23,80,443,8080...
 Output مثال:
 1.2.3.4:1080 | Open Ports: 80,443,8080
 
 ------------------------------------------------------------
-10. قاعدة البيانات / DATABASE
+10. قاعدة البيانات
 ------------------------------------------------------------
-- تخزن جميع البروكسيات المفحوصة في SQLite.
-- يحتفظ بسجل كامل، يسجل أول وآخر فحص.
+- تخزين جميع البروكسيات المفحوصة في SQLite.
+- تتبع أول وآخر فحص.
+- سجل كامل للفحوصات والإحصائيات.
 Output مثال:
 {ip:1.2.3.4, port:1080, protocol:socks5, country:US, anonymity:ELITE, speed_ms:120,...}
 
 ------------------------------------------------------------
-11. التصدير / EXPORT OPTIONS
+11. التصدير
 ------------------------------------------------------------
-- تصدير بصيغ: TXT، JSON، CSV، GeoJSON.
+- صيغ التصدير: TXT / JSON / CSV / GeoJSON
 - فلترة البروكسيات حسب الدولة.
 Output مثال:
 proxies_US.txt
 proxies.json
 
 ------------------------------------------------------------
-12. إشعارات تيليجرام / TELEGRAM NOTIFICATIONS
+12. إشعارات تيليجرام
 ------------------------------------------------------------
-- إرسال النتائج، الإحصائيات، أو ملفات البروكسي مباشرة.
+- إرسال النتائج والإحصائيات والملفات تلقائيًا.
 Output مثال:
 Telegram message:
 "10 proxies checked, 8 live, 2 blocked"
 
 ------------------------------------------------------------
-كيفية الاستخدام / HOW TO USE
+كيفية الاستخدام
 ------------------------------------------------------------
 1. شغل الأداة باستخدام Python 3.9+
 2. اختر ملف بروكسي موجود أو أنشئ جديد
 3. سحب البروكسيات من المصادر
-4. فحص البروكسيات باستخدام الميزات المتقدمة
+4. فحص البروكسيات بالميزات المتقدمة
 5. سيتم حفظ النتائج تلقائيًا (SQLite + TXT/JSON)
-6. يمكن تفعيل إشعارات تيليجرام
+6. تفعيل إشعارات تيليجرام اختياري
 
 ------------------------------------------------------------
-تنبيه / DISCLAIMER
+تنبيه
 ------------------------------------------------------------
 - الأداة للتعليم والبحث فقط.
-- أي استخدام غير قانوني مسؤوليتك كاملة.
+- أي استخدام غير قانوني هو مسؤوليتك كاملة.
 
-
-
+============================================================
+============================================================
        ADVANCED PROXY INTELLIGENCE SCANNER
                  by slaher501
+============================================================
 
+Tool Description:
+This is a powerful, professional tool for scraping, checking,
+and analyzing proxies with advanced features.
+Designed for serious use cases:
+- Pentesting
+- OSINT (Information Gathering)
+- Automation Scripts
+- Proxy Pool Building
 
-This is a professional tool for scraping, checking, and analyzing proxies.
-It is designed for serious use: pentesting, OSINT, automation, and proxy pool building.
-
-This is NOT a basic "alive/dead" checker; it's a full proxy analysis platform.
+⚠️ This is NOT a basic “alive/dead” checker, it’s a full proxy intelligence platform.
 
 ------------------------------------------------------------
-1. PROXY SCRAPING
+1. Proxy Scraping
 ------------------------------------------------------------
-- Scrapes proxies from 30+ reliable sources automatically.
-- Supports all types: HTTP, SOCKS4, SOCKS5.
-- Removes duplicates and supports proxy rotation.
+- Scrape proxies from 30+ reliable sources.
+- Support HTTP / SOCKS4 / SOCKS5.
+- Duplicate removal and proxy rotation support.
 Output example:
 socks5://1.2.3.4:1080
 
 ------------------------------------------------------------
-2. HIGH-SPEED CHECKING
+2. High-Speed Concurrent Checking
 ------------------------------------------------------------
-- Multi-threaded checking for speed.
-- Accurately detects live/dead proxies.
-- Smart timeout skips slow proxies.
+- Multi-threaded for fast checking.
+- Accurate live/dead detection.
+- Smart timeout handling for slow proxies.
 Output example:
 1.2.3.4:1080 → LIVE
 
 ------------------------------------------------------------
-3. PROXY INTELLIGENCE
+3. Proxy Intelligence
 ------------------------------------------------------------
-- Detects country, code, city, ISP, ASN.
-- Distinguishes Residential vs Datacenter.
-- Measures latency in ms.
+- Detect Country, Country Code, City, ISP, ASN.
+- Identify Residential vs Datacenter.
+- Measure latency in milliseconds.
 Output example:
 1.2.3.4:1080 | US | Comcast | DC | 120ms
 
 ------------------------------------------------------------
-4. ANONYMITY
+4. Anonymity Level
 ------------------------------------------------------------
-- ELITE: hides IP completely.
-- ANONYMOUS: limited exposure.
-- TRANSPARENT: IP visible.
+- ELITE: fully hides IP.
+- ANONYMOUS: leaves minimal traces.
+- TRANSPARENT: shows real IP.
 Output example:
 1.2.3.4:1080 | ELITE
 
 ------------------------------------------------------------
-5. GOOGLE ACCESS TEST
+5. Google Access Test
 ------------------------------------------------------------
-- Tests Google access via proxy.
-- Detects PASS, CAPTCHA, or BLOCKED.
+- Checks if Google works via proxy.
+- Detects PASS / CAPTCHA / BLOCKED.
 Output example:
 1.2.3.4:1080 | G:PASS
 
 ------------------------------------------------------------
-6. SPEED BENCHMARK
+6. Speed Benchmark
 ------------------------------------------------------------
-- Downloads 1MB to measure speed.
-- Categorizes speed: ULTRA / FAST / MEDIUM / SLOW.
+- Downloads 1MB to test speed.
+- Speed categories: ULTRA / FAST / MEDIUM / SLOW.
 Output example:
 1.2.3.4:1080 | 12.4 Mbps | ULTRA
 
 ------------------------------------------------------------
-7. SSL/TLS SUPPORT
+7. SSL/TLS Support
 ------------------------------------------------------------
-- Checks HTTPS and TLS version.
-- Flags insecure proxies.
+- Checks HTTPS compatibility and TLS version.
+- Detects insecure proxies.
 Output example:
 1.2.3.4:1080 | SSL:TLS1.3
 
 ------------------------------------------------------------
-8. BLACKLIST CHECK
+8. Blacklist Check
 ------------------------------------------------------------
-- Checks if IP is blacklisted online.
+- Checks if IP is blacklisted or suspicious.
 Output example:
 1.2.3.4:1080 | BLACKLISTED:NO
 
 ------------------------------------------------------------
-9. PORT SCANNING
+9. Open Port Scanning
 ------------------------------------------------------------
-- Checks common ports: 21,22,23,80,443,8080...
+- Scans common ports: 21,22,23,80,443,8080...
 Output example:
 1.2.3.4:1080 | Open Ports: 80,443,8080
 
 ------------------------------------------------------------
-10. DATABASE
+10. Database
 ------------------------------------------------------------
-- Stores all checked proxies in SQLite.
-- Tracks first seen / last checked.
-- Maintains full scan history.
+- Stores all proxies in SQLite database.
+- Tracks first and last checked time.
+- Full scan history and stats.
 Output example:
 {ip:1.2.3.4, port:1080, protocol:socks5, country:US, anonymity:ELITE, speed_ms:120,...}
 
 ------------------------------------------------------------
-11. EXPORT OPTIONS
+11. Export Options
 ------------------------------------------------------------
-- Export formats: TXT, JSON, CSV, GeoJSON.
+- Export as TXT / JSON / CSV / GeoJSON
 - Filter proxies by country.
 Output example:
 proxies_US.txt
 proxies.json
 
 ------------------------------------------------------------
-12. TELEGRAM NOTIFICATIONS
+12. Telegram Notifications
 ------------------------------------------------------------
-- Sends scan results, stats, or proxy files directly.
+- Sends results, stats, and proxy files automatically.
 Output example:
 Telegram message:
 "10 proxies checked, 8 live, 2 blocked"
 
 ------------------------------------------------------------
-HOW TO USE
+How to Use
 ------------------------------------------------------------
-1. Run with Python 3.9+
-2. Select or create a proxy file
+1. Run the tool using Python 3.9+
+2. Choose an existing proxy file or create a new one
 3. Scrape proxies from sources
 4. Check proxies with advanced features
-5. Results saved automatically (SQLite + TXT/JSON)
-6. Optional Telegram notifications
+5. Results are saved automatically (SQLite + TXT/JSON)
+6. Optional: enable Telegram notifications
 
 ------------------------------------------------------------
-DISCLAIMER
+Disclaimer
 ------------------------------------------------------------
-- For educational/research use only.
-- Any illegal use is your responsibility.
+- For educational and research purposes only.
+- Any illegal usage is your full responsibility.
 
 ============================================================
