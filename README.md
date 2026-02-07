@@ -1,236 +1,253 @@
 ============================================================
-        ADVANCED PROXY INTELLIGENCE SCANNER
+       ماسح وتحليل البروكسيات المتقدم
+                 بواسطة slaher501
 ============================================================
 
-An advanced, high-performance proxy scraping, checking, and
-intelligence tool built for serious use cases:
-Pentesting, OSINT, Scraping, Automation, and Privacy Testing.
+هذه أداة قوية واحترافية لسحب، فحص، وتحليل البروكسيات بطريقة متقدمة.
+مخصصة للاستخدام الجاد مثل: الاختبارات الأمنية، OSINT، السكربتات، الأتمتة، وبناء مجموعات بروكسي.
 
-This is NOT a basic “alive/dead” proxy checker.
-This tool analyzes, benchmarks, classifies, and stores proxies
-with real technical depth.
+هذه ليست أداة “يشتغل أو لا”، هذه منصة كاملة لتحليل البروكسيات.
 
 ------------------------------------------------------------
-FEATURES
+1. سحب البروكسيات / PROXY SCRAPING
 ------------------------------------------------------------
-
-[1] PROXY SCRAPING
-- Scrapes proxies from 30+ reliable sources
-- Supports HTTP / SOCKS4 / SOCKS5
-- Auto-discovery of new sources from GitHub
-- Duplicate removal
-- Optional proxy rotation while scraping
-
-[2] HIGH-SPEED CONCURRENT CHECKING
-- Multi-threaded proxy checking (hundreds of threads)
-- Smart timeout handling
-- Accurate live/dead detection
-
-[3] PROXY INTELLIGENCE (OSINT)
-- Country & Country Code
-- City
-- ISP
-- ASN
-- Residential vs Datacenter detection
-- Latency measurement (ms)
-
-[4] ANONYMITY LEVEL DETECTION
-- ELITE
-- ANONYMOUS
-- TRANSPARENT
-- Header-based detection (X-Forwarded-For, Via, etc.)
-
-[5] GOOGLE ACCESS TEST
-- Detects:
-  PASS (clean access)
-  CAPTCHA
-  BLOCKED
-- Critical for scraping and automation
-
-[6] SPEED BENCHMARK
-- Real download test (1MB)
-- Speed categories:
-  ULTRA
-  FAST
-  MEDIUM
-  SLOW
-
-[7] SSL / TLS SUPPORT CHECK
-- Tests HTTPS compatibility
-- Detects supported TLS version
-- Identifies insecure proxies
-
-[8] BLACKLIST CHECK
-- IP reputation check via GetIPIntel
-- Detects burned or suspicious proxies
-
-[9] OPEN PORT SCANNING
-- Scans common ports:
-  21, 22, 23, 80, 443, 3128, 8080, 8888
-
-[10] SQLITE DATABASE
-- Persistent storage of live proxies
-- Full scan history
-- Track first seen / last checked
-- Statistics and analytics
-
-[11] EXPORT OPTIONS
-- TXT (normal / proxychains format)
-- JSON
-- CSV
-- GeoJSON (map visualization)
-- Country-based filtering
-
-[12] GEOJSON MAP EXPORT
-- Visualize proxies on a world map
-- Compatible with geojson.io
-
-[13] TELEGRAM NOTIFICATIONS
-- Send scan results automatically
-- Send statistics
-- Send proxy files directly
+- تسحب البروكسيات من أكثر من 30 مصدر موثوق.
+- تدعم جميع الأنواع: HTTP، SOCKS4، SOCKS5.
+- تزيل التكرار وتدعم دوران البروكسي أثناء السحب.
+Output مثال:
+socks5://1.2.3.4:1080
 
 ------------------------------------------------------------
-OUTPUT EXAMPLES
+2. الفحص السريع والمتوازي / HIGH-SPEED CHECKING
 ------------------------------------------------------------
-
-Normal format:
-socks5://1.2.3.4:1080 | US | Comcast | DC | 120ms | ELITE | G:PASS | 12.4Mbps | ULTRA | SSL:TLS1.3
-
-Proxychains format:
-socks5 1.2.3.4 1080
-
-------------------------------------------------------------
-REQUIREMENTS
-------------------------------------------------------------
-
-Python 3.9+
-
-Required libraries:
-pip install requests colorama python-telegram-bot
+- فحص متوازي بعدد Threads كبير لتسريع العملية.
+- كشف البروكسيات الحية والميتة بدقة عالية.
+- Timeout ذكي لتخطي البروكسيات البطيئة.
+Output مثال:
+1.2.3.4:1080 → LIVE
 
 ------------------------------------------------------------
-USE CASES
+3. ذكاء البروكسي / PROXY INTELLIGENCE
 ------------------------------------------------------------
+- يحدد الدولة، الكود، المدينة، مزود الخدمة، ASN.
+- يميز البروكسي بين Residential أو Datacenter.
+- يقيس زمن الاستجابة بالملي ثانية.
+Output مثال:
+1.2.3.4:1080 | US | Comcast | DC | 120ms
 
-- Web Scraping
-- OSINT
-- Penetration Testing
-- Privacy Analysis
-- Automation Bots
-- Proxy Pool Building
-- Research & Analysis
+------------------------------------------------------------
+4. مستوى التخفي / ANONYMITY
+------------------------------------------------------------
+- ELITE: يخفي IP بالكامل.
+- ANONYMOUS: يترك أثر محدود.
+- TRANSPARENT: يظهر IP.
+Output مثال:
+1.2.3.4:1080 | ELITE
+
+------------------------------------------------------------
+5. اختبار الوصول لـ Google / GOOGLE ACCESS TEST
+------------------------------------------------------------
+- يختبر ما إذا كان Google يعمل عبر البروكسي.
+- يكشف PASS، CAPTCHA، أو BLOCKED.
+Output مثال:
+1.2.3.4:1080 | G:PASS
+
+------------------------------------------------------------
+6. اختبار السرعة / SPEED BENCHMARK
+------------------------------------------------------------
+- تحميل ملف 1 ميجابايت لقياس السرعة.
+- تصنيف السرعة: ULTRA / FAST / MEDIUM / SLOW.
+Output مثال:
+1.2.3.4:1080 | 12.4 Mbps | ULTRA
+
+------------------------------------------------------------
+7. دعم SSL/TLS / SSL/TLS SUPPORT
+------------------------------------------------------------
+- يفحص دعم HTTPS وإصدار TLS.
+- يحدد البروكسيات غير الآمنة.
+Output مثال:
+1.2.3.4:1080 | SSL:TLS1.3
+
+------------------------------------------------------------
+8. القوائم السوداء / BLACKLIST CHECK
+------------------------------------------------------------
+- يتحقق إن كان IP محظور أو مشبوه على الإنترنت.
+Output مثال:
+1.2.3.4:1080 | BLACKLISTED:NO
+
+------------------------------------------------------------
+9. فحص المنافذ / PORT SCANNING
+------------------------------------------------------------
+- يفحص المنافذ الشائعة: 21,22,23,80,443,8080...
+Output مثال:
+1.2.3.4:1080 | Open Ports: 80,443,8080
+
+------------------------------------------------------------
+10. قاعدة البيانات / DATABASE
+------------------------------------------------------------
+- تخزن جميع البروكسيات المفحوصة في SQLite.
+- يحتفظ بسجل كامل، يسجل أول وآخر فحص.
+Output مثال:
+{ip:1.2.3.4, port:1080, protocol:socks5, country:US, anonymity:ELITE, speed_ms:120,...}
+
+------------------------------------------------------------
+11. التصدير / EXPORT OPTIONS
+------------------------------------------------------------
+- تصدير بصيغ: TXT، JSON، CSV، GeoJSON.
+- فلترة البروكسيات حسب الدولة.
+Output مثال:
+proxies_US.txt
+proxies.json
+
+------------------------------------------------------------
+12. إشعارات تيليجرام / TELEGRAM NOTIFICATIONS
+------------------------------------------------------------
+- إرسال النتائج، الإحصائيات، أو ملفات البروكسي مباشرة.
+Output مثال:
+Telegram message:
+"10 proxies checked, 8 live, 2 blocked"
+
+------------------------------------------------------------
+كيفية الاستخدام / HOW TO USE
+------------------------------------------------------------
+1. شغل الأداة باستخدام Python 3.9+
+2. اختر ملف بروكسي موجود أو أنشئ جديد
+3. سحب البروكسيات من المصادر
+4. فحص البروكسيات باستخدام الميزات المتقدمة
+5. سيتم حفظ النتائج تلقائيًا (SQLite + TXT/JSON)
+6. يمكن تفعيل إشعارات تيليجرام
+
+------------------------------------------------------------
+تنبيه / DISCLAIMER
+------------------------------------------------------------
+- الأداة للتعليم والبحث فقط.
+- أي استخدام غير قانوني مسؤوليتك كاملة.
+
+
+============================================================
+       ADVANCED PROXY INTELLIGENCE SCANNER
+                 by slaher501
+============================================================
+
+This is a professional tool for scraping, checking, and analyzing proxies.
+It is designed for serious use: pentesting, OSINT, automation, and proxy pool building.
+
+This is NOT a basic "alive/dead" checker; it's a full proxy analysis platform.
+
+------------------------------------------------------------
+1. PROXY SCRAPING
+------------------------------------------------------------
+- Scrapes proxies from 30+ reliable sources automatically.
+- Supports all types: HTTP, SOCKS4, SOCKS5.
+- Removes duplicates and supports proxy rotation.
+Output example:
+socks5://1.2.3.4:1080
+
+------------------------------------------------------------
+2. HIGH-SPEED CHECKING
+------------------------------------------------------------
+- Multi-threaded checking for speed.
+- Accurately detects live/dead proxies.
+- Smart timeout skips slow proxies.
+Output example:
+1.2.3.4:1080 → LIVE
+
+------------------------------------------------------------
+3. PROXY INTELLIGENCE
+------------------------------------------------------------
+- Detects country, code, city, ISP, ASN.
+- Distinguishes Residential vs Datacenter.
+- Measures latency in ms.
+Output example:
+1.2.3.4:1080 | US | Comcast | DC | 120ms
+
+------------------------------------------------------------
+4. ANONYMITY
+------------------------------------------------------------
+- ELITE: hides IP completely.
+- ANONYMOUS: limited exposure.
+- TRANSPARENT: IP visible.
+Output example:
+1.2.3.4:1080 | ELITE
+
+------------------------------------------------------------
+5. GOOGLE ACCESS TEST
+------------------------------------------------------------
+- Tests Google access via proxy.
+- Detects PASS, CAPTCHA, or BLOCKED.
+Output example:
+1.2.3.4:1080 | G:PASS
+
+------------------------------------------------------------
+6. SPEED BENCHMARK
+------------------------------------------------------------
+- Downloads 1MB to measure speed.
+- Categorizes speed: ULTRA / FAST / MEDIUM / SLOW.
+Output example:
+1.2.3.4:1080 | 12.4 Mbps | ULTRA
+
+------------------------------------------------------------
+7. SSL/TLS SUPPORT
+------------------------------------------------------------
+- Checks HTTPS and TLS version.
+- Flags insecure proxies.
+Output example:
+1.2.3.4:1080 | SSL:TLS1.3
+
+------------------------------------------------------------
+8. BLACKLIST CHECK
+------------------------------------------------------------
+- Checks if IP is blacklisted online.
+Output example:
+1.2.3.4:1080 | BLACKLISTED:NO
+
+------------------------------------------------------------
+9. PORT SCANNING
+------------------------------------------------------------
+- Checks common ports: 21,22,23,80,443,8080...
+Output example:
+1.2.3.4:1080 | Open Ports: 80,443,8080
+
+------------------------------------------------------------
+10. DATABASE
+------------------------------------------------------------
+- Stores all checked proxies in SQLite.
+- Tracks first seen / last checked.
+- Maintains full scan history.
+Output example:
+{ip:1.2.3.4, port:1080, protocol:socks5, country:US, anonymity:ELITE, speed_ms:120,...}
+
+------------------------------------------------------------
+11. EXPORT OPTIONS
+------------------------------------------------------------
+- Export formats: TXT, JSON, CSV, GeoJSON.
+- Filter proxies by country.
+Output example:
+proxies_US.txt
+proxies.json
+
+------------------------------------------------------------
+12. TELEGRAM NOTIFICATIONS
+------------------------------------------------------------
+- Sends scan results, stats, or proxy files directly.
+Output example:
+Telegram message:
+"10 proxies checked, 8 live, 2 blocked"
+
+------------------------------------------------------------
+HOW TO USE
+------------------------------------------------------------
+1. Run with Python 3.9+
+2. Select or create a proxy file
+3. Scrape proxies from sources
+4. Check proxies with advanced features
+5. Results saved automatically (SQLite + TXT/JSON)
+6. Optional Telegram notifications
 
 ------------------------------------------------------------
 DISCLAIMER
 ------------------------------------------------------------
-
-This tool is for educational and research purposes only.
-You are fully responsible for how you use it.
-
-============================================================
-============================================================
-
-============================================================
-        ماسح وتحليل البروكسيات المتقدم
-============================================================
-
-أداة احترافية عالية الأداء لسحب، فحص، تحليل، وتصنيف البروكسيات.
-موجهة للاستخدام الجاد في:
-الاختبارات الأمنية، OSINT، السكربتات، الأتمتة، والخصوصية.
-
-هذه ليست أداة “يشتغل أو لا”.
-هذه منصة تحليل بروكسيات متكاملة.
-
-------------------------------------------------------------
-المميزات
-------------------------------------------------------------
-
-[1] سحب البروكسيات
-- سحب من أكثر من 30 مصدر موثوق
-- دعم HTTP / SOCKS4 / SOCKS5
-- اكتشاف مصادر جديدة تلقائيًا من GitHub
-- إزالة التكرار
-- دعم Proxy Rotation أثناء السحب
-
-[2] فحص عالي السرعة
-- فحص متوازي بعدد Threads كبير
-- Timeout ذكي
-- كشف دقيق للبروكسيات الحية والميتة
-
-[3] ذكاء البروكسي (OSINT)
-- الدولة + الكود
-- المدينة
-- مزود الخدمة ISP
-- ASN
-- تحديد Residential أو Datacenter
-- قياس زمن الاستجابة (ms)
-
-[4] تحليل مستوى التخفي
-- ELITE
-- ANONYMOUS
-- TRANSPARENT
-- تحليل Headers حقيقي
-
-[5] اختبار Google
-- PASS (يعمل طبيعي)
-- CAPTCHA
-- BLOCKED
-- مهم جدًا للـ Scraping
-
-[6] اختبار السرعة
-- تحميل فعلي (1MB)
-- تصنيف:
-  ULTRA
-  FAST
-  MEDIUM
-  SLOW
-
-[7] فحص SSL / TLS
-- دعم HTTPS
-- كشف إصدار TLS
-- تحديد البروكسيات غير الآمنة
-
-[8] فحص القوائم السوداء
-- كشف IP المحظور أو المشبوه
-
-[9] فحص المنافذ المفتوحة
-- أشهر المنافذ: 21, 22, 80, 443, 8080…
-
-[10] قاعدة بيانات SQLite
-- تخزين البروكسيات الحية
-- سجل كامل للفحوصات
-- إحصائيات دقيقة
-
-[11] التصدير
-- TXT
-- JSON
-- CSV
-- GeoJSON
-- فلترة حسب الدولة
-
-[12] خريطة جغرافية
-- عرض البروكسيات على خريطة العالم
-
-[13] إشعارات تيليجرام
-- إرسال النتائج تلقائيًا
-- إرسال الملفات
-
-------------------------------------------------------------
-تنبيه
-------------------------------------------------------------
-
-الأداة للاستخدام التعليمي والبحثي فقط.
-أي استخدام غير قانوني هو مسؤوليتك الكاملة.
-
-------------------------------------------------------------
-الخلاصة
-------------------------------------------------------------
-
-هذه ليست أداة عادية.
-هذه أداة للناس اللي تعرف وش تسوي.
-
-إذا فاهم → بتطلع كنز.
-إذا مو فاهم → بتتعلم بالقوة.
+- For educational/research use only.
+- Any illegal use is your responsibility.
 
 ============================================================
