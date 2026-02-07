@@ -161,13 +161,13 @@ cd V0iDXa
 pip install -r requirements.txt
 python V0iDXa.py
 ```
-Project Structure
-V0iDXa/
-├── V0iDXa.py        # Core Intelligence Engine
-├── requirements.txt
-├── proxies.db      # SQLite Intelligence Store
-├── exports/        # TXT / JSON / CSV / GeoJSON
-└── README.md
+### Project Structure
+- V0iDXa/
+- ├── V0iDXa.py        # Core Intelligence Engine
+- ├── requirements.txt
+- ├── proxies.db      # SQLite Intelligence Store
+- ├── exports/        # TXT / JSON / CSV / GeoJSON
+- └── README.md
 
 Professional Use Cases
 
@@ -192,7 +192,6 @@ Operate legally. Operate ethically.
 
 Final Note
 
-“If you know, you win.
-If you don’t, you learn the hard way.”
+### “If you know, you win. If you don’t, you learn the hard way.”
 
-Built with precision by slaher501.
+## Built with precision by slaher501.
