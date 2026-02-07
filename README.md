@@ -1,265 +1,168 @@
+# 🌌 V0iDXa: High-Performance Proxy Intelligence Engine
+### Advanced Reconnaissance & Multi-Protocol Validation Platform for Cybersecurity Professionals
 
-       ماسح وتحليل البروكسيات المتقدم
-                 بواسطة slaher501
-============================================================
+> **"V0iDXa (Void‑X) is not just a checker. It is a Proxy Intelligence Engine."**
 
-وصف الأداة:
-هذه أداة قوية واحترافية لسحب، فحص، وتحليل البروكسيات بطريقة متقدمة.
-مخصصة للاستخدام الجاد مثل:
-- الاختبارات الأمنية (Pentesting)
-- جمع المعلومات OSINT
-- السكربتات والأتمتة
-- بناء مجموعات بروكسي (Proxy Pool)
+V0iDXa is a **professional-grade Proxy Intelligence Engine** designed for advanced cybersecurity operations.  
+It goes far beyond basic proxy validation by **dissecting every IP into a full intelligence profile**, enabling informed, strategic decisions in hostile or restricted network environments.
 
-⚠️ هذه ليست أداة "يشتغل أو لا"، هذه منصة تحليل متكاملة.
+This project is built for practitioners—not hobbyists.
 
-------------------------------------------------------------
-1. سحب البروكسيات
-------------------------------------------------------------
-- سحب البروكسيات من أكثر من 30 مصدر موثوق.
-- دعم جميع الأنواع: HTTP / SOCKS4 / SOCKS5.
-- إزالة التكرار ودعم دوران البروكسي أثناء السحب.
-Output مثال:
-socks5://1.2.3.4:1080
+---
 
-------------------------------------------------------------
-2. الفحص السريع والمتوازي
-------------------------------------------------------------
-- فحص متعدد Threads لتسريع العملية.
-- كشف البروكسيات الحية والميتة بدقة.
-- Timeout ذكي لتخطي البروكسيات البطيئة.
-Output مثال:
-1.2.3.4:1080 → LIVE
+## 🧠 Core Philosophy
 
-------------------------------------------------------------
-3. ذكاء البروكسي
-------------------------------------------------------------
-- تحديد الدولة، الكود، المدينة، مزود الخدمة، ASN.
-- التمييز بين Residential و Datacenter.
-- قياس زمن الاستجابة بالملي ثانية.
-Output مثال:
-1.2.3.4:1080 | US | Comcast | DC | 120ms
+> **"Every proxy is a network entity with behavior, risk, and operational value."**
 
-------------------------------------------------------------
-4. مستوى التخفي
-------------------------------------------------------------
-- ELITE: يخفي IP بالكامل.
-- ANONYMOUS: يترك أثر محدود.
-- TRANSPARENT: يظهر IP.
-Output مثال:
-1.2.3.4:1080 | ELITE
+V0iDXa treats proxies as **intelligence assets**, not disposable endpoints.  
+Each IP is analyzed, scored, classified, and persisted to build long-term network awareness.
 
-------------------------------------------------------------
-5. اختبار الوصول لـ Google
-------------------------------------------------------------
-- اختبار إذا كان Google يعمل عبر البروكسي.
-- يكتشف PASS / CAPTCHA / BLOCKED.
-Output مثال:
-1.2.3.4:1080 | G:PASS
+---
 
-------------------------------------------------------------
-6. اختبار السرعة
-------------------------------------------------------------
-- تحميل 1 ميجابايت لقياس السرعة.
-- تصنيف السرعة: ULTRA / FAST / MEDIUM / SLOW.
-Output مثال:
-1.2.3.4:1080 | 12.4 Mbps | ULTRA
+## 🛡️ Key Intelligence Modules
 
-------------------------------------------------------------
-7. دعم SSL/TLS
-------------------------------------------------------------
-- فحص دعم HTTPS وإصدار TLS.
-- تحديد البروكسيات غير الآمنة.
-Output مثال:
-1.2.3.4:1080 | SSL:TLS1.3
+### 📡 1. Intelligent Data Ingestion
 
-------------------------------------------------------------
-8. القوائم السوداء
-------------------------------------------------------------
-- التحقق من أن IP محظور أو مشبوه.
-Output مثال:
-1.2.3.4:1080 | BLACKLISTED:NO
+> **"Fresh intelligence starts with aggressive collection."**
 
-------------------------------------------------------------
-9. فحص المنافذ
-------------------------------------------------------------
-- فحص المنافذ الشائعة: 21,22,23,80,443,8080...
-Output مثال:
-1.2.3.4:1080 | Open Ports: 80,443,8080
+- **Multi‑Source Scraping**  
+  Aggregates proxies from **30+ curated public sources**.
 
-------------------------------------------------------------
-10. قاعدة البيانات
-------------------------------------------------------------
-- تخزين جميع البروكسيات المفحوصة في SQLite.
-- تتبع أول وآخر فحص.
-- سجل كامل للفحوصات والإحصائيات.
-Output مثال:
-{ip:1.2.3.4, port:1080, protocol:socks5, country:US, anonymity:ELITE, speed_ms:120,...}
+- **Dynamic Discovery**  
+  Integrated **GitHub API reconnaissance** to discover newly published and unindexed proxy lists.
 
-------------------------------------------------------------
-11. التصدير
-------------------------------------------------------------
-- صيغ التصدير: TXT / JSON / CSV / GeoJSON
-- فلترة البروكسيات حسب الدولة.
-Output مثال:
-proxies_US.txt
-proxies.json
+- **Auto‑Sanitization**  
+  - Deduplication  
+  - Protocol normalization  
+  - Full support for **HTTP, SOCKS4, SOCKS5**
 
-------------------------------------------------------------
-12. إشعارات تيليجرام
-------------------------------------------------------------
-- إرسال النتائج والإحصائيات والملفات تلقائيًا.
-Output مثال:
-Telegram message:
-"10 proxies checked, 8 live, 2 blocked"
+---
 
-------------------------------------------------------------
-كيفية الاستخدام
-------------------------------------------------------------
-1. شغل الأداة باستخدام Python 3.9+
-2. اختر ملف بروكسي موجود أو أنشئ جديد
-3. سحب البروكسيات من المصادر
-4. فحص البروكسيات بالميزات المتقدمة
-5. سيتم حفظ النتائج تلقائيًا (SQLite + TXT/JSON)
-6. تفعيل إشعارات تيليجرام اختياري
+### 🧠 2. OSINT & Geo‑Reconnaissance
 
-------------------------------------------------------------
-تنبيه
-------------------------------------------------------------
-- الأداة للتعليم والبحث فقط.
-- أي استخدام غير قانوني هو مسؤوليتك كاملة.
+> **"Context turns IPs into intelligence."**
 
-============================================================
-============================================================
-       ADVANCED PROXY INTELLIGENCE SCANNER
-                 by slaher501
-============================================================
+- **ISP & ASN Mapping**  
+  Identifies service providers (e.g., STC, Comcast, OVH) and Autonomous System Numbers.
 
-Tool Description:
-This is a powerful, professional tool for scraping, checking,
-and analyzing proxies with advanced features.
-Designed for serious use cases:
-- Pentesting
-- OSINT (Information Gathering)
-- Automation Scripts
-- Proxy Pool Building
+- **Connection Classification**  
+  - Residential (High Trust)  
+  - Datacenter (Low Trust)
 
-⚠️ This is NOT a basic “alive/dead” checker, it’s a full proxy intelligence platform.
+- **Precision Geolocation**  
+  Country, city, and **real RTT‑based latency analysis**.
 
-------------------------------------------------------------
-1. Proxy Scraping
-------------------------------------------------------------
-- Scrape proxies from 30+ reliable sources.
-- Support HTTP / SOCKS4 / SOCKS5.
-- Duplicate removal and proxy rotation support.
-Output example:
-socks5://1.2.3.4:1080
+---
 
-------------------------------------------------------------
-2. High-Speed Concurrent Checking
-------------------------------------------------------------
-- Multi-threaded for fast checking.
-- Accurate live/dead detection.
-- Smart timeout handling for slow proxies.
-Output example:
-1.2.3.4:1080 → LIVE
+### 🕵️ 3. Anonymity & Stealth Profiling
 
-------------------------------------------------------------
-3. Proxy Intelligence
-------------------------------------------------------------
-- Detect Country, Country Code, City, ISP, ASN.
-- Identify Residential vs Datacenter.
-- Measure latency in milliseconds.
-Output example:
-1.2.3.4:1080 | US | Comcast | DC | 120ms
+> **"Anonymity is measurable."**
 
-------------------------------------------------------------
-4. Anonymity Level
-------------------------------------------------------------
-- ELITE: fully hides IP.
-- ANONYMOUS: leaves minimal traces.
-- TRANSPARENT: shows real IP.
-Output example:
-1.2.3.4:1080 | ELITE
+- **Anonymity Level Detection**  
+  Advanced header analysis classifies proxies as:
+  - ELITE  
+  - ANONYMOUS  
+  - TRANSPARENT  
 
-------------------------------------------------------------
-5. Google Access Test
-------------------------------------------------------------
-- Checks if Google works via proxy.
-- Detects PASS / CAPTCHA / BLOCKED.
-Output example:
-1.2.3.4:1080 | G:PASS
+- **Google Intelligence Test**  
+  Detects:
+  - `G:PASS`
+  - CAPTCHA triggers
+  - Hard IP blocks
 
-------------------------------------------------------------
-6. Speed Benchmark
-------------------------------------------------------------
-- Downloads 1MB to test speed.
-- Speed categories: ULTRA / FAST / MEDIUM / SLOW.
-Output example:
-1.2.3.4:1080 | 12.4 Mbps | ULTRA
+- **SSL / TLS Validation**  
+  - HTTPS capability verification  
+  - TLS version detection (up to **TLS 1.3**)
 
-------------------------------------------------------------
-7. SSL/TLS Support
-------------------------------------------------------------
-- Checks HTTPS compatibility and TLS version.
-- Detects insecure proxies.
-Output example:
-1.2.3.4:1080 | SSL:TLS1.3
+---
 
-------------------------------------------------------------
-8. Blacklist Check
-------------------------------------------------------------
-- Checks if IP is blacklisted or suspicious.
-Output example:
-1.2.3.4:1080 | BLACKLISTED:NO
+### 🏎️ 4. Performance & Persistence
 
-------------------------------------------------------------
-9. Open Port Scanning
-------------------------------------------------------------
-- Scans common ports: 21,22,23,80,443,8080...
-Output example:
-1.2.3.4:1080 | Open Ports: 80,443,8080
+> **"Speed without reliability is noise."**
 
-------------------------------------------------------------
-10. Database
-------------------------------------------------------------
-- Stores all proxies in SQLite database.
-- Tracks first and last checked time.
-- Full scan history and stats.
-Output example:
-{ip:1.2.3.4, port:1080, protocol:socks5, country:US, anonymity:ELITE, speed_ms:120,...}
+- **Throughput Benchmarking**  
+  Real‑world **1MB download test** to calculate actual Mbps.
 
-------------------------------------------------------------
-11. Export Options
-------------------------------------------------------------
-- Export as TXT / JSON / CSV / GeoJSON
-- Filter proxies by country.
-Output example:
-proxies_US.txt
-proxies.json
+- **SQLite Persistence Layer**  
+  Every validated proxy is stored for:
+  - Historical tracking  
+  - Burn detection  
+  - Behavioral trend analysis  
 
-------------------------------------------------------------
-12. Telegram Notifications
-------------------------------------------------------------
-- Sends results, stats, and proxy files automatically.
-Output example:
-Telegram message:
-"10 proxies checked, 8 live, 2 blocked"
+- **Visual Intelligence Output**  
+  GeoJSON generation to **visualize your proxy fleet globally**.
 
-------------------------------------------------------------
-How to Use
-------------------------------------------------------------
-1. Run the tool using Python 3.9+
-2. Choose an existing proxy file or create a new one
-3. Scrape proxies from sources
-4. Check proxies with advanced features
-5. Results are saved automatically (SQLite + TXT/JSON)
-6. Optional: enable Telegram notifications
+---
 
-------------------------------------------------------------
-Disclaimer
-------------------------------------------------------------
-- For educational and research purposes only.
-- Any illegal usage is your full responsibility.
+## 📊 Technical Output Format
 
-============================================================
+> **"Structured output enables automation."**
+
+Each proxy result is emitted in a **machine‑ and human‑readable format**:
+
+socks5://1.2.3.4:1080 | US | Comcast | RES | 120ms | ELITE | G:PASS | 12.4 Mbps | ULTRA | SSL:TLS1.3
+
+
+**Field Breakdown:**
+- Protocol & Endpoint  
+- Country  
+- ISP  
+- Connection Type  
+- Latency  
+- Anonymity Level  
+- Google Status  
+- Throughput  
+- Quality Score  
+- TLS Capability  
+
+---
+
+## ⚙️ Installation & Deployment
+
+### Prerequisites
+- Python **3.9+**
+- `pip` package manager
+
+---
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/slaher501/V0iDXa.git
+cd V0iDXa
+2️⃣ Install Dependencies
+pip install -r requirements.txt
+3️⃣ Execute the Engine
+python V0iDXa.py
+Launches an interactive intelligence-driven menu.
+
+📂 Project Structure
+V0iDXa/
+├── V0iDXa.py           # Core Intelligence Engine
+├── requirements.txt    # Dependency Stack
+├── proxies.db          # SQLite Intelligence Store (Auto-generated)
+├── exports/            # JSON / CSV / TXT Output
+└── README.md           # Documentation
+🧩 Professional Use Cases
+"Built for real operations."
+
+Penetration Testing (Pivoting, Evasion, Prep)
+
+OSINT under network restrictions
+
+Large‑scale scraping with reduced ban rates
+
+Proxy pool lifecycle management
+
+Distributed automation pipelines
+
+⚠️ Disclaimer
+"Power requires responsibility."
+
+This tool is intended only for educational purposes and authorized security research.
+The developer (slaher501) assumes no liability for misuse or damages caused by this software.
+
+Use responsibly. Stay legal.
+
+💡 Closing Thought
+"If you know, you win. If you don't, you learn the hard way."
+
